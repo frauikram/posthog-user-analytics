@@ -51,3 +51,35 @@ FROM `posthog_export`
 WHERE event = 'signup'
 GROUP BY source
 ORDER BY signups DESC;
+
+
+### 🔁 Retention Cohort Analysis
+
+We calculated weekly retention cohorts based on user signups and activity logs.
+
+**What this tells us:**
+- Each row shows users who signed up in a given week.
+- Each column shows how many of those users came back after 1, 2, 3... weeks.
+- The heatmap helps visualize user drop-off over time.
+
+**Why it's valuable:**
+Retention analysis is critical for understanding user engagement and product stickiness.
+
+📊 ![Retention Heatmap](outputs/retention_heatmap.png)
+
+
+### 📍 Attribution Analysis
+
+We analyzed user acquisition sources using `utm_source` and signup events.
+
+**What it shows:**
+- Which channels (like Google, Facebook, etc.) drive the most signups
+- Useful for budget allocation and channel optimization
+
+**How:**
+- Used DuckDB SQL to group `user_signed_up` events by `utm_source`
+- Exported as CSV
+- Visualized as bar chart
+
+📊 ![Attribution by Source](outputs/attribution_chart.png)
+

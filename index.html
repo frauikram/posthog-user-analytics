@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PostHog Tracking Test</title>
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV=1,window.posthog=e,e._i=[],e.init=function(i,s,a){
+      function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),
+      t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}
+      (o=t.createElement("script")).type="text/javascript",o.async=!0,
+      o.src="https://app.posthog.com/static/array.js",(n=t.getElementsByTagName("script")[0]).parentNode.insertBefore(o,n);
+      var h=e;for(void 0!==a?h=e[a]=[]:a="posthog",h.people=h.people||[],
+      h.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},
+      h.people.toString=function(){return h.toString(1)+".people (stub)"};
+      p="capture identify alias people.set people.set_once".split(" ");
+      for(r=0;r<p.length;r++)g(h,p[r]);
+      e._i.push([i,s,a])},
+      e.__SV=1.1}(document,window.posthog||[]);
+
+      posthog.init('phc_ya9F6Ey1dZdO69OPBAZ6iaPmbsWBlVLYGhJrpyx3SN5', { api_host: 'https://app.posthog.com' });
+
+      // Simulate some test events
+      posthog.capture('pageview');
+      posthog.capture('user_signed_up', {
+        utm_source: 'google',
+        plan: 'pro',
+        email: 'demo@demo.com'
+      });
+    </script>
+  </head>
+  <body>
+    <h1>PostHog Event Test Page</h1>
+  </body>
+</html>
