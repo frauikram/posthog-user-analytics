@@ -51,7 +51,7 @@ FROM `posthog_export`
 WHERE event = 'signup'
 GROUP BY source
 ORDER BY signups DESC;
-
+```
 
 ### 🔁 Retention Cohort Analysis
 
